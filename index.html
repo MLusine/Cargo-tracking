@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отслеживание грузов</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .status-yellow { background-color: yellow; }
+    .status-blue { background-color: blue; color: white; }
+    .status-green { background-color: green; color: white; }
+  </style>
+</head>
+<body>
+  <div class="container my-5">
+    <h2>Отслеживание грузов</h2>
+
+    <div class="my-3">
+      <h4>Добавить новый груз</h4>
+      <form id="cargoForm">
+        <div class="form-group">
+          <label for="cargoName">Название груза</label>
+          <input type="text" id="cargoName" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="origin">Пункт отправления</label>
+          <select id="origin" class="form-control" required>
+            <option value="">Выберите пункт отправления</option>
+            <option value="Москва">Москва</option>
+            <option value="Санкт-Петербург">Санкт-Петербург</option>
+            <option value="Казань">Казань</option>
+            <option value="Екатеринбург">Екатеринбург</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="destination">Пункт назначения</label>
+          <select id="destination" class="form-control" required>
+            <option value="">Выберите пункт назначения</option>
+            <option value="Москва">Москва</option>
+            <option value="Санкт-Петербург">Санкт-Петербург</option>
+            <option value="Казань">Казань</option>
+            <option value="Екатеринбург">Екатеринбург</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="departureDate">Дата отправления</label>
+          <input type="date" id="departureDate" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="status">Статус груза</label>
+          <select id="status" class="form-control">
+            <option value="Ожидает отправки">Ожидает отправки</option>
+            <option value="В пути">В пути</option>
+            <option value="Доставлен">Доставлен</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Добавить</button>
+      </form>
+    </div>
+
+    <div class="my-3">
+      <h4>Фильтровать по статусу</h4>
+      <select id="statusFilter" class="form-control">
+        <option value="">Все статусы</option>
+        <option value="Ожидает отправки">Ожидает отправки</option>
+        <option value="В пути">В пути</option>
+        <option value="Доставлен">Доставлен</option>
+      </select>
+    </div>
+
+    <h4>Список грузов</h4>
+    <table class="table table-bordered" id="cargoTable">
+      <thead>
+        <tr>
+          <th>Номер груза</th>
+          <th>Название</th>
+          <th>Статус</th>
+          <th>Пункт отправления</th>
+          <th>Пункт назначения</th>
+          <th>Дата отправления</th>
+          <th>Действия</th>
+        </tr>
+      </thead>
+      <tbody id="cargoList"></tbody>
+    </table>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
